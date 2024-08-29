@@ -2,7 +2,8 @@
 import React from 'react';
 import CustomCard from './CustomCard';
 import Grid from '@mui/material/Grid';
-import DashboardNavbar from './DashboardNavbar';
+import DashboardNavbar from './DashBoardHelper/DashboardNavbar';
+import SearchFilter from './DashBoardHelper/SearchFilter';
 
 function Dashboard() {
     // Example data to populate the cards
@@ -29,12 +30,19 @@ function Dashboard() {
         },
     ];
 
+    const handleSearch = (filters) => {
+        // Logic to filter apartments based on the search criteria
+        console.log('Search filters:', filters);
+    }
+
+
     return (
         <div>
             <DashboardNavbar />
             <div style={styles.container}>
                 <h1>HomeFinder Dashboard</h1>
                 <p>Welcome to the HomeFinder dashboard. Here are some items:</p>
+                <SearchFilter onSearch={handleSearch} />
                 <Grid container spacing={3}>
                     {cardData.map((card, index) => (
                         <Grid item key={index} xs={12} sm={6} md={4}>
